@@ -1,0 +1,245 @@
+/* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "base";
+
+body {
+  background-color: $main-bg-color;
+}
+
+container {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  left-sidebar {
+    width: 25%;
+    max-width: 300px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    background-color: $sidebar-bg-color;
+    text-align: center;
+    color: $white;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+
+    profile-pic {
+      display: block;
+      margin: 10%;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-style: hidden;
+        border-radius: 50%;
+        box-shadow: 0px 0px 3px black;
+      }
+    }
+
+    name-badge {
+      display: block;
+      margin-right: 10%;
+      margin-left: 10%;
+      border-style: solid;
+      border-width: 3px;
+      padding: 10px;
+
+      my-name {
+        display: block;
+        padding-bottom: 8px;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 2px;
+      }
+
+      my-occupation {
+        display: block;
+        font-size: 14px;
+      }
+    }
+    nav-buttons {
+      padding: 10% 10% 0 10%;//no padding on the bottom to lower chances of nav overflow
+
+      ul {
+        li {
+          margin-top: 5%;
+          margin-bottom: 5%;
+
+          a {
+            color: $white;
+            opacity: .7;
+            padding: 10px 8px 10px 10px; //ajust right for letter spacing
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 13pt;
+
+            img {
+              margin-top: 15px;
+              max-height: 32px;
+            }
+
+            &.active {
+              opacity: 1;
+              border-bottom: 3px solid $white;
+              padding: 10px 8px 7px 10px; //ajust right for letter spacing, ajust bottom padding for border
+            }
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main-content {
+    width: 75%;//100% - 25% (full width - sidebar width) = 75%
+    margin: 0 0 0 25%;//100% - 75% (full width - main content) = 25%
+    float: left;
+    background-color: $content-bg-color;
+    font-family: 'Overpass', sans-serif;
+
+    h1 {
+      min-width: 100%;
+      height: 300px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(90%);
+      font-size: 52pt;
+      text-transform: capitalize;
+    }
+
+    content {
+      display: block;
+      padding: 2% 4% 2% 4%;
+      min-height: calc(100vh - 300px);//make the section at least the height of the viewing height so that nav highlighting highlights correctly
+      border-bottom: 2px solid white;
+
+      a, h2, h3 {
+        text-transform: capitalize;
+      }
+
+      a, h3 {
+        font-size: 18pt;
+        color: $sidebar-bg-color;
+        opacity: .8;
+      }
+
+      a {
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-indent: 30px;
+        font-size: 13pt;
+        line-height: 140%;
+      }
+
+      h2 {
+        margin-top: 22px;
+        margin-bottom: 14px;
+        font-size: 26pt;
+      }
+
+      h3 {
+        display: inline;
+      }
+
+      img {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+        opacity: .95;
+        box-shadow: 0px 0px 3px black;
+      }
+
+      table {
+        margin: 10px auto 10px auto;
+        max-width: 100%;
+
+        td {
+          border: 1px solid black;
+        }
+
+        img {
+          display: block;
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+
+      indent {
+        display: block;
+        margin: 16px 6% 30px 4%;
+        padding-top: 2px;
+        border-left: 4px solid rgba($sidebar-bg-color, .3);
+        padding-left: 2%;
+
+        p {
+          text-indent: initial;
+          margin-bottom: 0;
+        }
+
+        a.try::after,
+        a.download::after,
+        a.view::after,
+        a.source::after {
+          display: inline-block;
+          margin-left: 14px;
+          text-decoration: none;
+          vertical-align: middle;
+          font-size: 10pt;
+        }
+        a.try::after {
+          content: "❮ Try It Now!";
+        }
+        a.download::after {
+          content: "❮ Download It Now!";
+        }
+        a.view::after {
+          content: "❮ View It Now!";
+        }
+        a.source::after {
+          content: "❮ View the Source Code!";
+        }
+
+        note-line {
+          display: block;
+          margin-top: 12px;
+          font-size: 10px;
+          font-weight: 900;
+          color: black;
+        }
+      }
+    }
+    footer {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 8pt;
+      text-align: center;
+      background-color: $main-bg-color;
+
+      website-credits {
+        padding-bottom: 4px;
+        display: block;
+        color: black;
+      }
+
+      a {
+        color: #b3b3b3;
+      }
+    }
+  }
+}
