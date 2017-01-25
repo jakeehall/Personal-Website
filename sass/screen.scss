@@ -15,7 +15,7 @@ container {
   left-sidebar {
     width: 25%;
     max-width: 300px;
-    height: 100%;
+    min-height: 100vh;
     position: fixed;
     overflow: auto;
     background-color: $sidebar-bg-color;
@@ -24,9 +24,31 @@ container {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 
+    @media screen and (max-width: $medium-responsive-break) {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    @media screen and (max-width: $small-responsive-break) {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
     profile-pic {
       display: block;
       margin: 10%;
+
+      @media screen and (max-width: $medium-responsive-break) {
+        margin: 2%;
+      }
+      @media screen and (max-width: $small-responsive-break) {
+        margin: 6%;
+      }
 
       img {
         width: 100%;
@@ -34,6 +56,13 @@ container {
         border-style: hidden;
         border-radius: 50%;
         box-shadow: 0px 0px 3px black;
+
+        @media screen and (max-width: $medium-responsive-break) {
+          width: 25%;
+        }
+        @media screen and (max-width: $small-responsive-break) {
+          width: 75%;
+        }
       }
     }
 
@@ -44,6 +73,10 @@ container {
       border-style: solid;
       border-width: 3px;
       padding: 10px;
+
+      @media screen and (max-width: $medium-responsive-break) {
+        margin: 0 30% 0 30%;
+      }
 
       my-name {
         display: block;
@@ -65,6 +98,10 @@ container {
         li {
           margin-top: 5%;
           margin-bottom: 5%;
+
+          @media screen and (max-width: $medium-responsive-break) {
+            margin: 1% 0 1% 0;
+          }
 
           a {
             color: $white;
@@ -101,6 +138,12 @@ container {
     float: left;
     background-color: $content-bg-color;
     font-family: 'Overpass', sans-serif;
+
+    @media screen and (max-width: $small-responsive-break), (max-width: $medium-responsive-break) {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
 
     h1 {
       min-width: 100%;
