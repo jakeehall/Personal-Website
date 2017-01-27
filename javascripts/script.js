@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $(document).on("scroll", onScroll);//create event for scrolling
 
-  //auto-scroll to element
+  //auto-scroll to element when # link is clicked
   $('a[href^="#"]').on('click', function(e) {//if a href that begins with # is clicked
     e.preventDefault();//prevent jumping straight to the div
     $(document).off("scroll");//dont listen to the scroll event while autoscrolling
@@ -30,6 +30,7 @@ $(document).ready(function() {
   }());
 }); //THIS IS THE END OF THE DOCUMENT READY
 
+//listen for when the user scrolls
 function onScroll() {
   var scrollPos = $(document).scrollTop();//get curent positon of scroll on the page
   $('nav-buttons ul li a[href^="#"]').each(function () {//loop through all of the "a" nav links
