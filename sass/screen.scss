@@ -3,7 +3,7 @@
 @import "base";
 
 body {
-  background-color: $main-bg-color;
+  background-color: $page-bg-color;
 }
 
 container {
@@ -12,70 +12,84 @@ container {
   max-width: 1200px;
   margin: auto;
 
-  left-sidebar {
-    width: 25%;
-    max-width: 300px;
-    min-height: 100vh;
-    position: fixed;
-    overflow: auto;
+  navbar {
+    //mobile first
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     background-color: $sidebar-bg-color;
     text-align: center;
     color: $white;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 
-    @media screen and (max-width: $medium-responsive-break) {
-      display: block;
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
+    //fix display height
+    @media screen and (max-height: 768px) {
+      min-height: 100vh;
     }
-    @media screen and (max-width: $small-responsive-break) {
-      display: block;
-      position: relative;
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
+
+    //for small tablets
+    @media screen and (min-width: $small-responsive-break) {
+      min-height: 0;
+    }
+    //for larger tablets and desktops
+    @media screen and (min-width: $medium-responsive-break) {
+      position: fixed;
+      width: 25%;
+      max-width: 300px;
+      min-height: 100vh;
+      overflow: auto;
     }
 
     profile-pic {
+      //mobile first
       display: block;
-      margin: 10%;
+      margin: 6%;
 
-      @media screen and (max-width: $medium-responsive-break) {
+      //for small tablets
+      @media screen and (min-width: $small-responsive-break) {
         margin: 2%;
       }
-      @media screen and (max-width: $small-responsive-break) {
-        margin: 6%;
+      //for larger tablets and desktops
+      @media screen and (min-width: $medium-responsive-break) {
+        margin: 10%;
       }
 
       img {
-        width: 100%;
+        //mobile first
+        width: 75%;
         height: auto;
         border-style: hidden;
         border-radius: 50%;
         box-shadow: 0px 0px 3px black;
 
-        @media screen and (max-width: $medium-responsive-break) {
+        //for small tablets
+        @media screen and (min-width: $small-responsive-break) {
           width: 25%;
         }
-        @media screen and (max-width: $small-responsive-break) {
-          width: 75%;
+        //for larger tablets and desktops
+        @media screen and (min-width: $medium-responsive-break) {
+          width: 100%;
         }
       }
     }
 
     name-badge {
-      display: block;
-      margin-right: 10%;
-      margin-left: 10%;
+      //mobile first
+      display: inline-block;
       border-style: solid;
       border-width: 3px;
-      padding: 10px;
+      padding: 10px 25px 10px 25px;
+      margin: 0 6% 0 6%;
 
-      @media screen and (max-width: $medium-responsive-break) {
-        margin: 0 30% 0 30%;
+      //for small tablets
+      @media screen and (min-width: $small-responsive-break) {
+        margin: 0 2% 0 2%;
+      }
+      //for larger tablets and desktops
+      @media screen and (min-width: $medium-responsive-break) {
+        margin: 0 10% 0 10%;
       }
 
       my-name {
@@ -91,44 +105,64 @@ container {
         font-size: 14px;
       }
     }
-    nav-buttons {
-      padding: 10% 10% 0 10%;//no padding on the bottom to lower chances of nav overflow
 
-      ul {
-        li {
-          margin-top: 5%;
-          margin-bottom: 5%;
+    ul {
+      //mobile first
+      display: block;
+      margin: 6% 0 6% 0;
 
-          @media screen and (max-width: $medium-responsive-break) {
-            margin: 1% 0 1% 0;
+      //for small tablets
+      @media screen and (min-width: $small-responsive-break) {
+        margin-top: 2% 0 2% 0;
+      }
+      //for larger tablets and desktops
+      @media screen and (min-width: $medium-responsive-break) {
+        margin-top: 10% 0 10% 0;
+      }
+
+      li {
+        //mobile first
+        margin: 1% 0 1% 0;
+
+        //for small tablets
+        @media screen and (min-width: $small-responsive-break) {
+          margin: 2% 0 2% 0;
+        }
+        //for larger tablets and desktops
+        @media screen and (min-width: $medium-responsive-break) {
+          margin: 5% 0 5% 0;
+        }
+
+        a {
+          color: $white;
+          opacity: .7;
+          padding: 10px 8px 10px 10px; //ajust right for letter spacing
+          display: inline-block;
+          text-decoration: none;
+          letter-spacing: 2px;
+          font-size: 13pt;
+          transition: opacity 150ms ease-in-out;
+          -moz-transition: opacity 150ms ease-in-out;
+          -webkit-transition: opacity 150ms ease-in-out;
+
+          img {
+            //mobile first
+            max-height: 32px;
+
+            //for larger tablets and desktops
+            @media screen and (min-width: $medium-responsive-break) {
+              margin-top: 32px;
+            }
           }
 
-          a {
-            color: $white;
-            opacity: .7;
-            padding: 10px 8px 10px 10px; //ajust right for letter spacing
-            display: inline-block;
-            text-decoration: none;
-            letter-spacing: 2px;
-            font-size: 13pt;
-            transition: opacity 200ms ease-in-out;
-            -moz-transition: opacity 200ms ease-in-out;
-            -webkit-transition: opacity 200ms ease-in-out;
+          &.active {
+            padding: 10px 8px 7px 10px; //ajust right for letter spacing, ajust bottom padding for border
+            border-bottom: 3px solid $white;
+            opacity: 1;
+          }
 
-            img {
-              margin-top: 15px;
-              max-height: 32px;
-            }
-
-            &.active {
-              padding: 10px 8px 7px 10px; //ajust right for letter spacing, ajust bottom padding for border
-              border-bottom: 3px solid $white;
-              opacity: 1;
-            }
-
-            &:hover {
-              opacity: 1;
-            }
+          &:hover {
+            opacity: 1;
           }
         }
       }
@@ -136,16 +170,18 @@ container {
   }
 
   main-content {
-    width: 75%;//100% - 25% (full width - sidebar width) = 75%
-    margin: 0 0 0 25%;//100% - 75% (full width - main content) = 25%
-    float: left;
+    //mobile first
+    display: block;
+    width: 100%;
+    margin: 0;
     background-color: $content-bg-color;
     font-family: 'Overpass', sans-serif;
 
-    @media screen and (max-width: $small-responsive-break), (max-width: $medium-responsive-break) {
-      display: block;
-      width: 100%;
-      margin: 0;
+    //for larger tablets and desktops
+    @media screen and (min-width: $medium-responsive-break) {
+      width: 75%;//100% - 25% (full width - sidebar width) = 75%
+      margin: 0 0 0 25%;//100% - 75% (full width - main content) = 25%
+      float: left;
     }
 
     h1 {
@@ -228,10 +264,15 @@ container {
 
       indent {
         display: block;
-        margin: 16px 6% 30px 4%;
+        margin: 16px 0 30px 0;
         padding-top: 2px;
         border-left: 4px solid rgba($sidebar-bg-color, .3);
         padding-left: 2%;
+
+        //for larger tablets and desktops
+        @media screen and (min-width: $medium-responsive-break) {
+          margin: 16px 6% 30px 4%;
+        }
 
         p {
           text-indent: initial;
@@ -275,7 +316,7 @@ container {
       padding-bottom: 12px;
       font-size: 8pt;
       text-align: center;
-      background-color: $main-bg-color;
+      background-color: $page-bg-color;
 
       website-credits {
         padding-bottom: 4px;
