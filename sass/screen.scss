@@ -111,6 +111,9 @@ container {
             text-decoration: none;
             letter-spacing: 2px;
             font-size: 13pt;
+            transition: opacity 200ms ease-in-out;
+            -moz-transition: opacity 200ms ease-in-out;
+            -webkit-transition: opacity 200ms ease-in-out;
 
             img {
               margin-top: 15px;
@@ -118,9 +121,9 @@ container {
             }
 
             &.active {
-              opacity: 1;
-              border-bottom: 3px solid $white;
               padding: 10px 8px 7px 10px; //ajust right for letter spacing, ajust bottom padding for border
+              border-bottom: 3px solid $white;
+              opacity: 1;
             }
 
             &:hover {
