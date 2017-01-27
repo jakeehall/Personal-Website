@@ -24,11 +24,6 @@ container {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 
-    //fix display height
-    @media screen and (max-height: 768px) {
-      min-height: 100vh;
-    }
-
     //for small tablets
     @media screen and (min-width: $small-responsive-break) {
       min-height: 0;
@@ -40,6 +35,11 @@ container {
       max-width: 300px;
       min-height: 100vh;
       overflow: auto;
+    }
+
+    //fix display height
+    @media screen and (max-height: 769px) {
+      min-height: 100vh;
     }
 
     profile-pic {
