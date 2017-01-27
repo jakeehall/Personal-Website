@@ -39,7 +39,7 @@ function onScroll() {
     if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
       $('nav-buttons ul li a').removeClass("active");//remove active from all "a" tag in nav
       currLink.addClass("active");
-    } else {
+    } else if (!scrollPos < 0) {
       currLink.removeClass("active");
     }
   });
