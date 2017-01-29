@@ -1,15 +1,25 @@
 $(document).ready(function() {
+  ajustSelectedNav();//inital selected size setting
   $(document).on("scroll", onScroll);//create event for scrolling
 
   //auto-scroll to element when # link is clicked
   $('a[href^="#"]').on('click', function(e) {//if a href that begins with # is clicked
     e.preventDefault();//prevent jumping straight to the div
     $(document).off("scroll");//dont listen to the scroll event while autoscrolling
-
     $('navbar ul li a').removeClass('active');//remove active from all "a" tag in nav
-    $(this).addClass('active');//add active to the clicked a tag
-
-    var target = this.hash;//store the id of the clicked "a" so that it can be used inside the next selector
+    var target;
+    if ($(this).attr('href') != "#top") {
+      $(this).addClass('active');//add active to the clicked a tag
+      target = this.hash;//store the id of the clicked "a" so that it can be used inside the next selector
+    } else {
+      //scroll to top based on window size
+      if($(window).width() >=768) {
+        $("#about").addClass('active');//add active to the clicked a tag
+        target = "#about";//scroll to about if not in responsive mode
+      } else {
+        target = "#nav";
+      }
+    }
     $('html, body').stop().animate({'scrollTop': $(target).offset().top + 1}, 500, 'swing', function () {//css to scroll to the top of the the clicked div, animation time, animation style, function to run after
       window.location.hash = target;//changes the hash in the site url to the "a" that was clicked
       $(document).on("scroll", onScroll);//create new listener for after "a" was clicked
@@ -18,11 +28,7 @@ $(document).ready(function() {
 
   //selects correct section to be active in the nav bar when the page is resized
   $(window).resize(function() {
-    if($(window).width() >=768) {
-      onScroll();
-    } else {
-      $('navbar ul li a[href^="#"]').removeClass("active");
-    }
+    ajustSelectedNav();
   });
 
   //occupation animation code
@@ -38,6 +44,15 @@ $(document).ready(function() {
     });
   }());
 }); //THIS IS THE END OF THE DOCUMENT READY
+
+//ajust selected nav based on size
+function ajustSelectedNav() {
+  if($(window).width() >=768) {
+    onScroll();
+  } else {
+    $('navbar ul li a[href^="#"]').removeClass("active");
+  }
+}
 
 //listen for when the user scrolls
 function onScroll() {
