@@ -11,31 +11,33 @@
   <script src="javascripts/script.js"></script>
 </head>
 <body>
-  <container>
+  <page-container>
     <navbar>
-      <profile-pic>
-        <img src="./images/profile/profile_pic.jpg"/>
-      </profile-pic>
-      <name-badge>
-        <my-name>Jake Hall</my-name>
-        <my-occupation>Developer</my-occupation>
-      </name-badge>
-      <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#hire-me">Hire Me</a></li>
-        <li>
-          <a href="https://github.com/jakeehall" title="GitHub" target="_blank"><img src="images/nav/github_mark.png"/></a>
-          <a href="https://bitbucket.org/jakeehall/" title="BitBucket" target="_blank"><img src="images/nav/bitbucket_mark.png"/></a>
-          <a href="https://www.linkedin.com/in/jakeehall" title="LinkedIn" target="_blank"><img src="images/nav/linkedin_mark.png"/></a>
-        </li>
-      </ul>
+      <navbar-container>
+        <profile-pic>
+          <img src="./images/profile/profile_pic.jpg"/>
+        </profile-pic>
+        <name-badge>
+          <my-name>Jake Hall</my-name>
+          <my-occupation>Developer</my-occupation>
+        </name-badge>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#hire-me">Hire Me</a></li>
+          <li>
+            <a href="https://github.com/jakeehall" title="GitHub" target="_blank"><img src="images/nav/github_mark.png"/></a>
+            <a href="https://bitbucket.org/jakeehall/" title="BitBucket" target="_blank"><img src="images/nav/bitbucket_mark.png"/></a>
+            <a href="https://www.linkedin.com/in/jakeehall" title="LinkedIn" target="_blank"><img src="images/nav/linkedin_mark.png"/></a>
+          </li>
+        </ul>
+      </navbar-container>
     </navbar>
     <main-content>
 
       <section id="about">
-        <h1 style="background: url(./images/header.jpg) 50% 50% no-repeat;">About</h1>
+        <h1 style="background-image: url(./images/header.jpg);">About</h1>
         <content>
           <p>This website is (obviously) under re-development. In fact I'm really embarresed to even have this as my temporary website. Please check back soon for updates!</p>
           <h2>Sub Heading Test</h2>
@@ -44,7 +46,7 @@
       </section>
 
       <section id="projects">
-        <h1 style="background: url(./images/header.jpg) 50% 50% no-repeat;">Projects</h1>
+        <h1 style="background: url(./images/header.jpg);">Projects</h1>
         <content>
 
           <h2>Interactive Web Demos</h2>
@@ -64,7 +66,7 @@
             <a class="source" target="_blank">JakeHall.me</a>
             <p>
               Well duh, right? Yes, I created and designed this entire website using the some of the latest web
-              technologies including: PHP, HTML, SCSS/SASS (a CSS pre-processor very similar to LESS), and JavaScript
+              technologies including: PHP, HTML, SCSS/Sass (a CSS pre-processor very similar to LESS), and JavaScript
               with use of the JQuery Library. There are some very modern style choices I used while developing this
               website, such as page animations, as well as smooth scrolling features when a navagation link is clicked.
               But wait, there's more! This website is also responsive to create a better viewing experience on
@@ -92,7 +94,7 @@
       </section>
 
       <section id="resume">
-        <h1 style="background: url(./images/header.jpg) 50% 50% no-repeat;">Resume</h1>
+        <h1 style="background: url(./images/header.jpg)">Resume</h1>
         <content>
           <h2>this is another one test of a table</h2>
           <table>
@@ -125,7 +127,7 @@
       </section>
 
       <section id="hire-me">
-        <h1 style="background: url(./images/header.jpg) 50% 50% no-repeat;">Hire Me</h1>
+        <h1 style="background: url(./images/header.jpg);">Hire Me</h1>
         <content>
           <p>This website is (obviously) under re-development. In fact I'm really embarresed to even have this as my temporary website. Please check back soon for updates!</p>
           <h2>Sub Heading Test</h2>
@@ -138,6 +140,6 @@
         <a href="#about">Top</a>
       </footer>
     </main-content>
-  </container>
+  </page-container>
 </body>
 </html>

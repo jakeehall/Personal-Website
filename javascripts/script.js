@@ -16,15 +16,24 @@ $(document).ready(function() {
     });
   });
 
+  //selects correct section to be active in the nav bar when the page is resized
+  $(window).resize(function() {
+    if($(window).width() >=768) {
+      onScroll();
+    } else {
+      $('navbar ul li a[href^="#"]').removeClass("active");
+    }
+  });
+
   //occupation animation code
   var texts = ["Developer", "Designer", "Creator"];
   var i = 0;
-  (function runIt() {
+  (function occupationAnimation() {
     i++;
     $("my-occupation").delay(3500).fadeOut(500, function() {
       $("my-occupation").html(texts[i % texts.length]);
       $("my-occupation").fadeIn(500, function() {
-        runIt();
+        occupationAnimation();
       });
     });
   }());
@@ -39,7 +48,7 @@ function onScroll() {
     if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
       $('navbar ul li a').removeClass("active");//remove active from all "a" tag in nav
       currLink.addClass("active");
-    } else if (!scrollPos < 0) {//on mac's you can have a negative position because of the scroll bar bounce so if its negative dont chnage anything
+    } else if (!scrollPos < 0 || $(window).width() <=768) {//on mac's you can have a negative position because of the scroll bar bounce so if its negative dont chnage anything
       currLink.removeClass("active");
     }
   });
