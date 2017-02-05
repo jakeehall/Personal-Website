@@ -1,4 +1,4 @@
-/* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "base";
 
@@ -16,7 +16,6 @@ page-container {
     //mobile first
     display: block;
     width: 100%;
-    overflow: auto;
     background-color: $sidebar-bg-color;
     text-align: center;
     color: $white;
@@ -33,6 +32,7 @@ page-container {
       width: 25%;
       max-width: 300px;
       min-height: 100vh;
+      overflow: auto;
     }
 
     //display height is full height on mobile
@@ -67,7 +67,6 @@ page-container {
           @media screen and (min-width: $medium-responsive-break) {
             width: 100%;
           }
-
           //display height is full height on mobile
           @media screen and (max-height: 567px) {//568
             width: 45%;
@@ -190,7 +189,6 @@ page-container {
       justify-content: center;
       align-items: center;
       font-size: 44pt;
-      text-transform: capitalize;
 
       //for small tablets
       @media screen and (min-width: $small-responsive-break) {
@@ -265,6 +263,11 @@ page-container {
           margin: 0;
           box-shadow: none;
         }
+      }
+
+      iframe {
+        margin: 4%;
+        width: 92%; //100% - 4% * 2 (margin)
       }
 
       indent {

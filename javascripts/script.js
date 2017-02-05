@@ -68,3 +68,8 @@ function onScroll() {
     }
   });
 }
+
+//sets the height of an iframe to the height of the content inside of it
+function resizeIframe(obj) {
+  obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+}
