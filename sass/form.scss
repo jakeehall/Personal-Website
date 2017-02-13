@@ -8,11 +8,18 @@ body {
     p {
       font-size: 120%;
       font-weight: 500;
+
+      &::before {
+        content: "* ";
+        color: #ff0000;
+        color: rgba(#ff0000, .6);
+      }
     }
     input,
     select,
     textarea {
       display: block;
+      margin-top: 2px;
       margin-bottom: 10px;
       width: 250px;
       max-width: 100%;
@@ -20,6 +27,16 @@ body {
       padding: 4px;
       border: 1px solid $page-bg-color;
       border-radius: 4px;
+
+      &.invalid {
+        border-color: #ff0000;
+        background-color: #FCDFDF;
+      }
+
+      &.valid {
+        border-color: #3F0;
+        background-color: #E1FCDF;
+      }
 
       &:focus {
         border-color: $dark-color;
@@ -30,6 +47,8 @@ body {
     }
     textarea {
       width: 100%;
+      width: -webkit-calc(100% - 10px);
+      width: calc(100% - 10px);
       resize: none;
     }
     input[type=submit] {

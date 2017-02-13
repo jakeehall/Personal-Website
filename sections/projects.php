@@ -30,7 +30,7 @@
     <p>
       Dedicated to supplying the latest news in the tech world, Tech Booters was know for working closely with
       independent inventors and developers to showcase lesser-known projects. Tech Booters quickly became a
-      dependable source for not only news, but also for indie companys to relese their latest creations. The
+      dependable source for not only news, but also for indie companys to release their latest creations. The
       website also hosted its own video gaming podcast, "The Boot," along with un-boxing videos of the latest
       products on the market.
     </p>

@@ -1,4 +1,7 @@
 <h1 style="background-image: url(./images/header.jpg);">Resume</h1>
 <content>
-  <img src="images/Jacob_Hall_Resume.png"/>
+  <a href="./resume.pdf" title="Downlaod Full PDF Version">
+    <div style="opacity: 1;"><img src="images/Jacob_Hall_Resume.png"/></div>
+    Download Full PDF Version
+  </a>
 </content>
