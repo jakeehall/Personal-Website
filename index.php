@@ -45,7 +45,7 @@
         <?php include './sections/resume.php';?>
       </section>
       <section id="hire-me">
-        <?php include './sections/hire-me.php';?>
+        <?php include './sections/hire-me/hire-me.php';?>
       </section>
       <footer>
         <website-credits>Created and Designed by Jacob Hall</website-credits>

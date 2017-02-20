@@ -9,3 +9,4 @@ need to change:
 
 -add images for each section
 -add favicon and ios bookmark images
+-html contact message
