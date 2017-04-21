@@ -1,4 +1,4 @@
-<form action="contact.php" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+<form action="contact.php" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <p>Full Name:</p>
   <input type="text" name="fullName" value="<?php echo $fullName;?>" class="<?php echo $fullnameValidity;?>" required>
   <p>Company:</p>
@@ -16,6 +16,7 @@
     <option value="other" <?=$jobType == "other" ? ' selected="selected"' : '';?>>Other (Not Listed Above)</option>
   </select>
   <p>Job Details:</p>
-  <textarea name="message" rows="12" class="<?php echo $messageValidity;?>" required><?php echo $message;?></textarea>
-  <input type="submit" value="Submit">
+  <textarea name="message" rows="12" class="<?php echo $messageValidity;?>" required><?php echo $details;?></textarea>
+  <div class="g-recaptcha" data-sitekey="6LeaLhYUAAAAAJTKXLcksQaenC2mStUyCcyGHX0c"></div>
+  <input id="submit" type="submit" value="Submit">
 </form>

@@ -2,6 +2,6 @@
 <content>
   <a href="./resume.pdf" title="Downlaod Full PDF Version">
     <div style="opacity: 1;"><img src="images/Jacob_Hall_Resume.png"/></div>
-    Download Full PDF Version
+    <div class="dlpdf">Download Full PDF Version</div>
   </a>
 </content>

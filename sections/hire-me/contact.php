@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--STYLE SHEETS BELOW-->
     <link href="../../stylesheets/form.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
   </head>
   <body>
     <?php
-      $error = true;
+      $error = true;//true by default, only switches to false if there is absoultly no errors
       $fullName = $company = $email = $phoneNumber = $jobType = $details = "";
       $fullnameValidity = $companyValidity = $emailValidity = $phoneNumberValidity = $detailsValidity = "";
 
@@ -19,9 +20,30 @@
         return $data;
       }
 
+      //If data has already been posted, check data, else show form for first time
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = false;
 
+        //RECAPTCHA below
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+      	$data = array(
+      		'secret' => '6LeaLhYUAAAAAPgi7EOPtO3JF-JfOWJyz6VyAE3h',//REMOVE
+      		'response' => $_POST["g-recaptcha-response"]
+      	);
+      	$options = array(
+      		'http' => array (
+      			'method' => 'POST',
+      			'content' => http_build_query($data)
+      		)
+      	);
+      	$context  = stream_context_create($options);
+      	$verify = file_get_contents($url, false, $context);
+      	$captcha_success=json_decode($verify);
+        if (!$captcha_success->success) {
+          //failure
+          $error = true;
+        }
+        //Form information
         if (empty($_POST["fullName"])) {
           $fullnameValidity = "invalid";
           $error = true;
@@ -89,32 +111,32 @@
         } else {
           $details = test_input($_POST["message"]);
         }
+      }
 
-        if (!$error) {
-          require_once '../../swiftmailer/swift_required.php';
+      if (!$error) {
+        require_once '../../swiftmailer/swift_required.php';
 
-          $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-            ->setUsername("jakeehall@gmail.com")
-            ->setPassword("xdiujzrrjypyqezq");
+        $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+          ->setUsername("jakeehall@gmail.com")
+          ->setPassword("xdiujzrrjypyqezq");//REMOVE
 
-          $mailer = Swift_Mailer::newInstance($transporter);
+        $mailer = Swift_Mailer::newInstance($transporter);
 
-          $mailMessage =  "Name: " . $fullName . "\r\n" .
-                          "Company: " . $company . "\r\n" .
-                          "Job Type: " . $jobType . "\r\n" .
-                          "Email: " . $email . "\r\n" .
-                          "Phone Number: " . $phoneNumber . "\r\n" .
-                          "\r\n" .
-                          $details;
+        $mailMessage =  "Name: " . $fullName . "\r\n" .
+                        "Company: " . $company . "\r\n" .
+                        "Job Type: " . $jobType . "\r\n" .
+                        "Email: " . $email . "\r\n" .
+                        "Phone Number: " . $phoneNumber . "\r\n" .
+                        "\r\n" .
+                        $details;
 
-          $message = Swift_Message::newInstance()
-              ->setSubject($company . " " . $jobType)
-              ->setFrom(array($email => $fullName))
-              ->setTo(array('jakeehall@gmail.com' => 'Jake Hall'))
-              ->setBody($mailMessage);
+        $message = Swift_Message::newInstance()
+            ->setSubject($company . " " . $jobType)
+            ->setFrom(array($email => $fullName))
+            ->setTo(array('jakeehall@gmail.com' => 'Jake Hall'))
+            ->setBody($mailMessage);
 
-          $error = !$mailer->send($message);
-        }
+        $error = !$mailer->send($message);
       }
 
       if($error) {

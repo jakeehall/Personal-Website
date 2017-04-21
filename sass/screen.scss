@@ -221,6 +221,12 @@ page-container {
       }
 
       a {
+        @media (max-width: $small-responsive-break) {
+          .dlpdf {
+            text-align: center;
+          }
+        }
+
         &:hover {
           opacity: 1;
         }
