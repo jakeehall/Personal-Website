@@ -1,4 +1,4 @@
-/* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* <link href="./stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "base";
 
@@ -24,11 +24,11 @@ page-container {
     text-transform: uppercase;
 
     //for small tablets
-    @media screen and (min-width: $small-responsive-break) {
+    @media (min-width: $small-responsive-break) {
       min-height: 0;
     }
     //for larger tablets and computers
-    @media screen and (min-width: $medium-responsive-break) {
+    @media (min-width: $medium-responsive-break) {
       position: fixed;
       width: 25%;
       max-width: 300px;
@@ -36,7 +36,7 @@ page-container {
     }
 
     //display height is full height on mobile
-    @media screen and (max-height: 767px) {//768
+    @media (max-height: 767px) {//768
       min-height: 100vh;
     }
 
@@ -46,7 +46,7 @@ page-container {
       margin: 6%;
 
       //for larger tablets and computers
-      @media screen and (min-width: $medium-responsive-break) {
+      @media (min-width: $medium-responsive-break) {
         margin: 10%;
       }
 
@@ -60,16 +60,15 @@ page-container {
           box-shadow: 0px 0px 3px black;
 
           //for tablets
-          @media screen and (min-width: $small-responsive-break) {
+          @media (min-width: $small-responsive-break) {
             width: 30%;
           }
           //for larger tablets and computers
-          @media screen and (min-width: $medium-responsive-break) {
+          @media (min-width: $medium-responsive-break) {
             width: 100%;
           }
-
           //display height is full height on mobile
-          @media screen and (max-height: 567px) {//568
+          @media (max-height: 567px) {//568
             width: 45%;
           }
         }
@@ -84,11 +83,11 @@ page-container {
         margin: 6% 10%;
 
         //for tablets
-        @media screen and (min-width: $small-responsive-break) {
+        @media (min-width: $small-responsive-break) {
           margin: 6% 20%;
         }
         //for larger tablets and computers
-        @media screen and (min-width: $medium-responsive-break) {
+        @media (min-width: $medium-responsive-break) {
           margin: 10% 0;
         }
 
@@ -112,11 +111,11 @@ page-container {
           margin: 1% 0 1% 0;
 
           //for small tablets
-          @media screen and (min-width: $small-responsive-break) {
+          @media (min-width: $small-responsive-break) {
             margin: 2% 0 2% 0;
           }
           //for larger tablets and computers
-          @media screen and (min-width: $medium-responsive-break) {
+          @media (min-width: $medium-responsive-break) {
             margin: 5% 0 5% 0;
           }
 
@@ -138,7 +137,7 @@ page-container {
               margin-top: 10px;
 
               //for larger tablets and computers
-              @media screen and (min-width: $medium-responsive-break) {
+              @media (min-width: $medium-responsive-break) {
                 margin-top: 32px;
               }
             }
@@ -167,7 +166,7 @@ page-container {
     font-family: 'Overpass', sans-serif;
 
     //for larger tablets and computers
-    @media screen and (min-width: $medium-responsive-break) {
+    @media (min-width: $medium-responsive-break) {
       width: 75%;//100% - 25% (full width - sidebar width) = 75%
       max-width: 900px;
       margin: 0 0 0 25%;//100% - 75% (full width - main content) = 25%
@@ -178,22 +177,23 @@ page-container {
       //900px x 300px header image
       display: flex;
       min-width: 100%;
-      min-height: 100px;
+      min-height: 150px;
       height: 40vh;
       max-height: 300px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      -webkit-filter: grayscale(90%); /* Safari 6.0 - 9.0 */
-      filter: grayscale(90%);
+      -webkit-filter: grayscale(65%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(65%);
       //text
       justify-content: center;
       align-items: center;
       font-size: 44pt;
-      text-transform: capitalize;
+      color: $dark-color;
+      text-shadow: 0 0 3px $content-bg-color, 0 0 3px $content-bg-color, 0 0 3px $content-bg-color, 0 0 3px $content-bg-color;
 
       //for small tablets
-      @media screen and (min-width: $small-responsive-break) {
+      @media (min-width: $small-responsive-break) {
         font-size: 52pt;
       }
     }
@@ -201,11 +201,14 @@ page-container {
     content {
       display: block;
       padding: 2% 4% 2% 4%;
-      min-height: calc(100vh - 300px);//make the section at least the height of the viewing height so that nav highlighting highlights correctly
+      //make the section at least the height of the viewing height so that nav highlighting highlights correctly
+      min-height: 100vh;
+      min-height: -webkit-calc(100vh - 150px);
+      min-height: calc(100vh - 150px);
       border-bottom: 2px solid $white;
 
       //for small tablets
-      @media screen and (max-width: $small-responsive-break) {
+      @media (max-width: $small-responsive-break) {
         min-height: 0;
       }
 
@@ -220,6 +223,12 @@ page-container {
       }
 
       a {
+        @media (max-width: $small-responsive-break) {
+          .dlpdf {
+            text-align: center;
+          }
+        }
+
         &:hover {
           opacity: 1;
         }
@@ -267,6 +276,11 @@ page-container {
         }
       }
 
+      iframe {
+        margin: 4%;
+        width: 92%; //100% - 4% * 2 (margin)
+      }
+
       indent {
         display: block;
         margin: 16px 0 30px 0;
@@ -275,7 +289,7 @@ page-container {
         padding-left: 2%;
 
         //for larger tablets and computers
-        @media screen and (min-width: $medium-responsive-break) {
+        @media (min-width: $medium-responsive-break) {
           margin: 16px 6% 30px 4%;
         }
 
