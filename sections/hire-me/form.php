@@ -1,6 +1,6 @@
 <form action="contact.php" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <p>Full Name:</p>
-  <input type="text" name="fullName" value="<?php echo $fullName;?>" class="<?php echo $fullnameValidity;?>" required>
+  <input type="text" name="fullName" value="<?php echo $fullName;?>" class="otherClass" class="<?php echo $fullnameValidity;?>" required>
   <p>Company:</p>
   <input type="text" name="company" value="<?php echo $company;?>" class="<?php echo $companyValidity;?>" required>
   <p>Email:</p>
@@ -17,6 +17,6 @@
   </select>
   <p>Job Details:</p>
   <textarea name="message" rows="12" class="<?php echo $messageValidity;?>" required><?php echo $details;?></textarea>
-  <div class="g-recaptcha" data-sitekey="6LeaLhYUAAAAAJTKXLcksQaenC2mStUyCcyGHX0c"></div>
+  <div class="g-recaptcha <?php echo $recaptchaValidity;?>" data-sitekey="6LeaLhYUAAAAAJTKXLcksQaenC2mStUyCcyGHX0c"></div>
   <input id="submit" type="submit" value="Submit">
 </form>

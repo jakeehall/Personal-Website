@@ -4,6 +4,13 @@
 
 body {
   font-family: 'Overpass', sans-serif;
+  p#lead {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-indent: 30px;
+    font-size: 13pt;
+    line-height: 140%;
+  }
   h1 {
     text-align: center;
     font-size: 6vw;
@@ -25,7 +32,8 @@ body {
     }
     input,
     select,
-    textarea {
+    textarea,
+    .g-recaptcha {
       display: block;
       margin-top: 2px;
       margin-bottom: 10px;
@@ -58,6 +66,11 @@ body {
       width: -webkit-calc(100% - 10px);
       width: calc(100% - 10px);
       resize: none;
+    }
+    .g-recaptcha {
+      padding: 0;
+      width: auto;
+      max-width: 304px;
     }
     input[type=submit] {
       width: 100%;

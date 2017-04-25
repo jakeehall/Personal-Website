@@ -5,5 +5,3 @@ BUG:
 TODO:
 -add images for each section
 -add favicon and ios bookmark images
-!-store secrete codes in a different file and save that file in .gitignore
-!-fix styling for captcha error

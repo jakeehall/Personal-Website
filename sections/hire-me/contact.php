@@ -9,9 +9,10 @@
   </head>
   <body>
     <?php
+      require_once "../../private/codes.php";//note this file is gitignored
       $error = true;//true by default, only switches to false if there is absoultly no errors
       $fullName = $company = $email = $phoneNumber = $jobType = $details = "";
-      $fullnameValidity = $companyValidity = $emailValidity = $phoneNumberValidity = $detailsValidity = "";
+      $fullnameValidity = $companyValidity = $emailValidity = $phoneNumberValidity = $detailsValidity = $recaptchaValidity = "";
 
       function test_input($data) {
         $data = trim($data);
@@ -27,7 +28,7 @@
         //RECAPTCHA below
         $url = 'https://www.google.com/recaptcha/api/siteverify';
       	$data = array(
-      		'secret' => '6LeaLhYUAAAAAPgi7EOPtO3JF-JfOWJyz6VyAE3h',//REMOVE
+      		'secret' => $recaptchaSecret,
       		'response' => $_POST["g-recaptcha-response"]
       	);
       	$options = array(
@@ -40,15 +41,17 @@
       	$verify = file_get_contents($url, false, $context);
       	$captcha_success=json_decode($verify);
         if (!$captcha_success->success) {
-          //failure
+          //failure to verify
+          $recaptchaValidity = "invalid";
           $error = true;
         }
-        //Form information
-        if (empty($_POST["fullName"])) {
+
+        //Form information below
+        $fullName = test_input($_POST["fullName"]);
+        if (empty($fullName)) {
           $fullnameValidity = "invalid";
           $error = true;
         } else {
-          $fullName = test_input($_POST["fullName"]);
           // check if name only contains letters and whitespace
           if (!preg_match("/^[-a-zA-Z ]*$/", $fullName)) {
             $fullnameValidity = "invalid";
@@ -56,11 +59,11 @@
           }
         }
 
-        if (empty($_POST["company"])) {
+        $company = test_input($_POST["company"]);
+        if (empty($company)) {
           $companyValidity = "invalid";
           $error = true;
         } else {
-          $company = test_input($_POST["company"]);
           // check if name only contains letters, numbers, dashes, and whitespace
           if (!preg_match("/^[-a-zA-Z \d]*$/", $company)) {
             $companyValidity = "invalid";
@@ -68,11 +71,11 @@
           }
         }
 
-        if (empty($_POST["email"])) {
+        $email = test_input($_POST["email"]);
+        if (empty($email)) {
           $emailValidity = "invalid";
           $error = true;
         } else {
-          $email = test_input($_POST["email"]);
           //use PHP's built in email validation function
           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailValidity = "invalid";
@@ -80,16 +83,11 @@
           }
         }
 
-        if (empty($_POST["phoneNumber"])) {
+        $phoneNumber = preg_replace("/[^0-9]/", "", $_POST["phoneNumber"]);
+        //strip everything from phoneNumber that is not a number, then check length
+        if (strlen($phoneNumber) < 10) {
           $phoneNumberValidity = "invalid";
           $error = true;
-        } else {
-          $phoneNumber = preg_replace("/[^0-9]/", "", $_POST["phoneNumber"]);
-          //strip everything from phoneNumber that is not a number, then check length
-          if (strlen($phoneNumber) < 10) {
-            $phoneNumberValidity = "invalid";
-            $error = true;
-          }
         }
 
         $jobType = $_POST["jobType"];
@@ -105,20 +103,20 @@
           $jobType = "Other Job Type";
         }
 
-        if (empty($_POST["message"])) {
+        $details = test_input($_POST["message"]);
+        if (empty($details)) {
           $detailsValidity = "invalid";
           $error = true;
-        } else {
-          $details = test_input($_POST["message"]);
         }
       }
 
+      //if there are no errors in the form then send the email
       if (!$error) {
         require_once '../../swiftmailer/swift_required.php';
 
         $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-          ->setUsername("jakeehall@gmail.com")
-          ->setPassword("xdiujzrrjypyqezq");//REMOVE
+          ->setUsername($emailUsername)
+          ->setPassword($emailPassword);
 
         $mailer = Swift_Mailer::newInstance($transporter);
 
@@ -140,7 +138,8 @@
       }
 
       if($error) {
-        include './form.php';
+        echo "<p id='lead'>Do you have a job that I would be a good fit for? I'd really appreciate it if you'd contact me for a positon using the form below, and I will contact you back at the provided email address or phone number!</p></br>";
+        include "./form.php";
       } else {
         echo '<h1>Your message was <span class="success">successfully</span> sent,<br>thank you for contacting me!</h1>';
       }

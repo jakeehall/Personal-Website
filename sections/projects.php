@@ -1,4 +1,4 @@
-<h1 style="background-image: url(./images/header.jpg);">Projects</h1>
+<h1 style="background-image: url(./images/headers/projects.jpg);">Projects</h1>
 <content>
 
   <h2>Interactive Web Demos</h2>
@@ -41,5 +41,4 @@
   <indent>
     <a class="download" target="_blank">Checkers</a><a class="source" target="_blank"></a>
   </indent>
-  <h2>Contributor</h2>
 </content>
