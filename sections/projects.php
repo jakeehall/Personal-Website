@@ -5,17 +5,16 @@
   <indent>
     <a class="try" href="../projects/keno/" target="_blank">Keno</a>
     <p>
-      Do you like gambling, or have you never tried? Don't bother wasting your money when you can play Keno,
-      a lotto-like game, online for free. To play, select between 1 and 10 diffrent numbers of your choice,
-      then cross your fingers and hope that your number(s) are selected from the 20 number drawn. I programmed
-      this game using nothing more than the HTML5 standards, this way no downloads or programs besides your
-      web browser are needed!
+      Do you like gambling? Don't bother wasting your money when you can play Keno, a lotto-like game, online
+      for free. To play, select between 1 and 10 diffrent numbers of your choice, then cross your fingers and
+      hope that your number(s) are selected from the 20 number drawn. I programmed this game using nothing more
+      than the HTML5 standards, this way no downloads or programs besides your web browser are needed!
     </p>
   </indent>
 
   <h2>Websites</h2>
   <indent>
-    <a class="source" target="_blank">JakeHall.me</a>
+    <a class="source" href="https://github.com/jakeehall/personal-website" target="_blank">JakeHall.me</a>
     <p>
       Well duh, right? Yes, I created and designed this entire website using the some of the latest web
       technologies including: PHP, HTML, SCSS/Sass (a CSS pre-processor very similar to LESS), and JavaScript
@@ -39,6 +38,14 @@
 
   <h2>Programs</h2>
   <indent>
-    <a class="download" target="_blank">Checkers</a><a class="source" target="_blank"></a>
+    <a class="source" href="https://github.com/JR-CMU/PointApp" target="_blank">The Point iPhone App</a>
+    <p>
+      As part of the Software Engineering course at Colorado Mesa University, I was set with the task to find
+      a local business and create a piece of software to fit their needs. The Point is a local Restaurant and
+      Bar, located on the Colorado Mesa University campus run by students. In order to take advantage of the
+      growing food industries needs for technology, I built an iPhone application for customers to engage with.
+      Using a unique user interface design, I created easy-to-use application that would allow customers to
+      view menus, order food, view upcoming events, and get rewarded for purchases, all from their own iPhone.
+    </p>
   </indent>
 </content>

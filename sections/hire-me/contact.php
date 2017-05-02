@@ -138,7 +138,7 @@
       }
 
       if($error) {
-        echo "<p id='lead'>Do you have a job that I would be a good fit for? I'd really appreciate it if you'd contact me for a positon using the form below, and I will contact you back at the provided email address or phone number!</p></br>";
+        echo "<p id='lead'>Do you have a job that I would be a good fit for? I'd really appreciate it if you'd contact me for a positon using the form below, and I will contact you back at the provided email address or phone number as quickly as I can!</p></br>";
         include "./form.php";
       } else {
         echo '<h1>Your message was <span class="success">successfully</span> sent,<br>thank you for contacting me!</h1>';
