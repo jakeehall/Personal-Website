@@ -11,6 +11,17 @@
       than the HTML5 standards, this way no downloads or programs besides your web browser are needed!
     </p>
   </indent>
+  <indent>
+    <a class="try" href="../projects/MathCards/" target="_blank">Math Flash Cards</a><a class="source" href="https://github.com/jakeehall/MathLearningTables" target="_blank"></a>
+    <p>
+      After first learning object oriented JavaScript I wrote a simple program for elementry students to start
+      learning simple math by using online flash cards. This way anyone could learn basic math for free and
+      also be amused by the automation and randomness of online flash cards. This program allows parents,
+      teachers, or users to set what kinds of math they would like to be tested on aswell as the range of
+      numbers they would like to work with. After completing each problem the users score, percentage, and
+      grade will all be shown in real time.
+    </p>
+  </indent>
 
   <h2>Websites</h2>
   <indent>
@@ -19,7 +30,7 @@
       Well duh, right? Yes, I created and designed this entire website using the some of the latest web
       technologies including: PHP, HTML, SCSS/Sass (a CSS pre-processor very similar to LESS), and JavaScript
       with use of the JQuery Library. There are some very modern style choices I used while developing this
-      website, such as page animations, as well as smooth scrolling features when a navagation link is clicked.
+      website, such as page animations, as well as smooth scrolling features when a navigation link is clicked.
       But wait, there's more! This website is also responsive to create a better viewing experience on
       smaller-screened devices.
     </p>
@@ -29,7 +40,7 @@
     <p>
       Dedicated to supplying the latest news in the tech world, Tech Booters was know for working closely with
       independent inventors and developers to showcase lesser-known projects. Tech Booters quickly became a
-      dependable source for not only news, but also for indie companys to release their latest creations. The
+      dependable source for not only news, but also for indie company's to release their latest creations. The
       website also hosted its own video gaming podcast, "The Boot," along with un-boxing videos of the latest
       products on the market.
     </p>

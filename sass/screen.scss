@@ -190,7 +190,7 @@ page-container {
       align-items: center;
       font-size: 44pt;
       color: $dark-color;
-      text-shadow: 0 0 3px $content-bg-color, 0 0 3px $content-bg-color, 0 0 3px $content-bg-color, 0 0 3px $content-bg-color;
+      text-shadow: 0 0 5px $content-bg-color, 0 0 5px $content-bg-color, 0 0 5px $content-bg-color, 0 0 5px $content-bg-color;
 
       //for small tablets
       @media (min-width: $small-responsive-break) {
