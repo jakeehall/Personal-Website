@@ -6,7 +6,7 @@
     <a class="try" href="../projects/keno/" target="_blank">Keno</a>
     <p>
       Do you like gambling? Don't bother wasting your money when you can play Keno, a lotto-like game, online
-      for free. To play, select between 1 and 10 diffrent numbers of your choice, then cross your fingers and
+      for free. To play, select between 1 and 10 different numbers of your choice, then cross your fingers and
       hope that your number(s) are selected from the 20 number drawn. I programmed this game using nothing more
       than the HTML5 standards, this way no downloads or programs besides your web browser are needed!
     </p>
@@ -14,10 +14,10 @@
   <indent>
     <a class="try" href="../projects/MathCards/" target="_blank">Math Flash Cards</a><a class="source" href="https://github.com/jakeehall/MathLearningTables" target="_blank"></a>
     <p>
-      After first learning object oriented JavaScript I wrote a simple program for elementry students to start
+      After first learning object oriented JavaScript I wrote a simple program for elementary students to start
       learning simple math by using online flash cards. This way anyone could learn basic math for free and
       also be amused by the automation and randomness of online flash cards. This program allows parents,
-      teachers, or users to set what kinds of math they would like to be tested on aswell as the range of
+      teachers, or users to set what kinds of math they would like to be tested on as well as the range of
       numbers they would like to work with. After completing each problem the users score, percentage, and
       grade will all be shown in real time.
     </p>

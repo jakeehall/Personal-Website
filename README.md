@@ -6,7 +6,3 @@ Swiftmailer PHP library is used to send emails with form content
 
 BUG:
 -navbar gets cutoff and overflow doesn't work in desktop mode on small-height, large-width screens
-
-TODO:
--add favicon and iOS bookmark images
--check spelling and do final preparation tests

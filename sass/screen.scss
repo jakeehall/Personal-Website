@@ -78,7 +78,7 @@ page-container {
         //mobile first
         display: block;
         border-style: solid;
-        border-width: 3px;
+        border-width: 2px;
         padding: 10px 0;
         margin: 6% 10%;
 
@@ -95,7 +95,7 @@ page-container {
           display: block;
           padding-bottom: 8px;
           font-size: 20px;
-          font-weight: 800;
+          font-weight: 500;
           letter-spacing: 2px;
         }
 
@@ -144,7 +144,7 @@ page-container {
 
             &.active {
               padding: 10px 8px 7px 10px; //ajust right for letter spacing, ajust bottom padding for border
-              border-bottom: 3px solid $white;
+              border-bottom: 2px solid $white;
               opacity: 1;
             }
 

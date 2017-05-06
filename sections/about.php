@@ -3,7 +3,7 @@
   <h2>Hello World!</h2>
   <p>
     My name is Jake Hall and I'm a developer. At a young age I became very interested with technology.
-    Everytime I visited a website my curiosity grew stronger, and I wanted to know how to create my
+    Every time I visited a website my curiosity grew stronger, and I wanted to know how to create my
     own space on the internet. When I was twelve years old I created my first website to share some of
     my favorite flash games with the kids in my elementary school. After a while of updating my site, I
     wanted to broaden my skill set by learning HTML on my own, this way I would no longer depend on
@@ -42,6 +42,4 @@
     obsessed with learning new skills and perfecting old ones, but the way I view my field this is an
     essential talent to keep up with the newest and greatest technology!
   </p>
-  <h2>Welcome Outside!</h2>
-  <p>When I'm not working, I can be found outside hiking, camping, </p>
 </content>
